@@ -1,0 +1,106 @@
+<div class="projects-section" id="projects">
+  <div class="projects-grid">
+    {% for item in module.projects_list %}
+    <div class="project-card">
+      {% if item.project_image.src %}
+      <div class="project-image">
+        <img
+          src="{{ item.project_image.src|escape_url }}"
+          alt="{{ item.project_image.alt|escape_attr }}"
+        >
+        <div class="project-overlay">
+          <button class="view-details" data-id="{{ loop.index }}">
+            <i class="fas fa-eye"></i> View Details
+          </button>
+        </div>
+      </div>
+      {% endif %}
+      <div class="project-content">
+        <h3>{{ item.project_title }}</h3>
+        <p>{{ item.project_short_description }}</p>
+        
+        {% if item.project_tags %}
+        <div class="project-tags">
+          {% for tag in item.project_tags.split(',') %}
+            <span class="tag">{{ tag|trim }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      
+      <!-- Modal -->
+      <div class="project-modal" id="modal-{{ loop.index }}">
+        <div class="modal-content">
+          <button class="modal-close">&times;</button>
+          {% if item.project_image.src %}
+          <img 
+            src="{{ resize_image_url(item.project_image.src, 800) }}" 
+            alt="{{ item.project_image.alt|escape_attr }}"
+          >
+          {% endif %}
+          <h3>{{ item.project_title }}</h3>
+          <div class="modal-description">
+            {{ item.project_full_description }}
+          </div>
+          {% if item.project_link %}
+          <a href="{{ item.project_link.href|escape_url }}" target="_blank" class="btn">
+            <i class="fas fa-external-link-alt"></i> View Project
+          </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  
+  {% require_css %}
+  <link rel="stylesheet" href="{{ module_asset_url('module.css') }}">
+  {% end_require_css %}
+
+  {% if not is_in_editor %}
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Open modal
+    document.querySelectorAll('.view-details').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const modal = document.getElementById('modal-' + btn.dataset.id);
+        if (modal) {
+          modal.style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+    
+    // Close modal via close button
+    document.querySelectorAll('.modal-close').forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.closest('.project-modal').style.display = 'none';
+        document.body.style.overflow = 'auto';
+      });
+    });
+    
+    // Close modal via clicking outside
+    document.querySelectorAll('.project-modal').forEach(modal => {
+      modal.addEventListener('click', e => {
+        if (e.target === modal) {
+          modal.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        }
+      });
+    });
+    
+    // Close modal with ESC key
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.project-modal').forEach(modal => {
+          if (modal.style.display === 'flex') {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+          }
+        });
+      }
+    });
+  });
+  </script>
+  {% endif %}
+</div>

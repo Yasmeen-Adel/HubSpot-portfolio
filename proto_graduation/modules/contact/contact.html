@@ -1,0 +1,125 @@
+<div class="contact-section" id="contact">
+    <div class="contact-container">
+        <div class="contact-info">
+            <h3>{% inline_text field="contact_heading" value="Get In Touch" %}</h3>
+            <p>{% inline_rich_text field="contact_subheading" value="Feel free to reach out for collaborations or just a friendly hello!" %}</p>
+            
+            <div class="contact-items">
+                {% if module.email_address %}
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <a href="mailto:{{ module.email_address }}">
+                            {% inline_text field="email_address" value="{{ module.email_address }}" %}
+                        </a>
+                    </div>
+                </div>
+                {% endif %}
+                
+                {% if module.phone_number %}
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h4>Phone</h4>
+                        <a href="tel:{{ module.phone_number }}">
+                            {% inline_text field="phone_number" value="{{ module.phone_number }}" %}
+                        </a>
+                    </div>
+                </div>
+                {% endif %}
+                
+                {% if module.location %}
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Location</h4>
+                        <p>{% inline_text field="location" value="{{ module.location }}" %}</p>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            
+            <div class="contact-social">
+                {% if module.linkedin_url %}
+                <a href="{{ module.linkedin_url.href }}" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                {% endif %}
+                
+                {% if module.github_url %}
+                <a href="{{ module.github_url.href }}" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                {% endif %}
+                
+                {% if module.twitter_url %}
+                <a href="{{ module.twitter_url.href }}" target="_blank" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                {% endif %}
+            </div>
+        </div>
+        
+        <div class="contact-form-wrapper">
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" id="name" name="name" required placeholder="Your Name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" placeholder="What's this about?">
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="Your message here..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-submit">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+            </form>
+            
+            <div class="form-success" id="formSuccess" style="display: none;">
+                <i class="fas fa-check-circle"></i>
+                <p>Thank you! Your message has been sent successfully.</p>
+            </div>
+        </div>
+    </div>
+    
+    {% require_css %}
+    <link rel="stylesheet" href="{{ module_asset_url('module.css') }}">
+    {% end_require_css %}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contactForm');
+            const formSuccess = document.getElementById('formSuccess');
+            
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    setTimeout(() => {
+                        form.style.display = 'none';
+                        formSuccess.style.display = 'block';
+                        
+                        setTimeout(() => {
+                            form.reset();
+                            form.style.display = 'block';
+                            formSuccess.style.display = 'none';
+                        }, 5000);
+                    }, 500);
+                });
+            }
+        });
+    </script>
+</div>

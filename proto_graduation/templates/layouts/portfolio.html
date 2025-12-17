@@ -1,0 +1,19 @@
+<!--
+templateType: page
+isAvailableForNewContent: true
+label: Portfolio Page
+-->
+{% extends "./base.html" %}
+
+{% block body %}
+<div class="portfolio-container">
+    {% dnd_area "main_content" label="Main Portfolio Content" %}
+        {% include_dnd_partial path="/proto_graduation/sections/hero-section.html" %}
+        {% include_dnd_partial path="/proto_graduation/sections/about-section.html" %}
+        {% include_dnd_partial path="/proto_graduation/sections/services-section.html" %}
+        {% include_dnd_partial path="/proto_graduation/sections/skills-section.html" %}
+        {% include_dnd_partial path="/proto_graduation/sections/projects-section.html" %}
+        {% include_dnd_partial path="/proto_graduation/sections/contact-section.html" %}
+    {% end_dnd_area %}
+</div>
+{% endblock %}

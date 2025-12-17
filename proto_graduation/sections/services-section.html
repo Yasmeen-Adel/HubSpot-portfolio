@@ -1,0 +1,17 @@
+<!--
+templateType: section
+isAvailableForNewContent: true
+label: "Services Section"
+-->
+{% dnd_section %}
+  {% dnd_column %}
+    {% dnd_row %}
+      {% dnd_module path="@hubspot/rich_text", html="<div class='section-header'><h2>Services</h2><p>What I can do for you</p></div>" %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+    {% dnd_row %}
+      {% dnd_module path="../modules/services.module" %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+  {% end_dnd_column %}
+{% end_dnd_section %}

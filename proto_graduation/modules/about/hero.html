@@ -1,0 +1,37 @@
+<!-- 
+templateType: module 
+label: About Section Module 
+isAvailableForNewContent: true 
+-->
+<div class="about-section" id="about">
+    <div class="about-content">
+        <div class="about-text">
+            <h2>
+                {% inline_text field="about_heading" value="{{ module.about_heading }}" %}
+            </h2>
+            <div class="about-description">
+                {% inline_rich_text field="about_description" value="{{ module.about_description }}" %}
+            </div>
+            
+            {% if module.download_cv_button %}
+            <a href="{{ module.cv_file.url }}" class="btn" download>
+                <i class="fas fa-download"></i> Download CV
+            </a>
+            {% endif %}
+        </div>
+        
+        {% if module.about_image.src %}
+        <div class="about-image">
+            <img src="{{ resize_image_url(module.about_image.src, 500) }}" 
+                 alt="{{ module.about_image.alt|escape_attr }}"
+                 width="500"
+                 height="400"
+                 loading="lazy">
+        </div>
+        {% endif %}
+    </div>
+    
+    {% require_css %}
+    <link rel="stylesheet" href="{{ module_asset_url('module.css') }}">
+    {% end_require_css %}
+</div>

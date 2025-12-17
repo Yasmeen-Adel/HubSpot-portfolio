@@ -1,0 +1,22 @@
+<div class="skills-section" id="skills">
+    <div class="skills-container">
+        {% for item in module.skills_list %}
+        <div class="skill-item" style="--skill-width: {{ item.skill_level }}%;">
+            <div class="skill-header">
+                {% if item.skill_icon %}
+                <i class="{{ item.skill_icon }}"></i>
+                {% endif %}
+                
+                <span class="skill-name">
+                    {% inline_text field="skill_name" value="{{ item.skill_name }}" %}
+                </span>
+                
+                <span class="skill-percentage">{{ item.skill_level }}%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress"></div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>

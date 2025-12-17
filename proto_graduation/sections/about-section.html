@@ -1,0 +1,17 @@
+<!--
+templateType: section
+isAvailableForNewContent: true
+label: "About Section"
+-->
+{% dnd_section %}
+  {% dnd_column %}
+    {% dnd_row %}
+      {% dnd_module path="@hubspot/rich_text", html="<div class='section-header'><h2>About Me</h2><p>Get to know me better</p></div>" %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+    {% dnd_row %}
+      {% dnd_module path="../modules/about.module" %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+  {% end_dnd_column %}
+{% end_dnd_section %}

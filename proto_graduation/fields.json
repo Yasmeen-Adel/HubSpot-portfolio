@@ -1,0 +1,140 @@
+[
+    {
+        "label": "Global Colors",
+        "name": "global_colors",
+        "type": "group",
+        "children": [
+            {
+                "label": "Primary Color",
+                "name": "primary",
+                "type": "color",
+                "visibility": {
+                    "hidden_subfields": {
+                        "opacity": true
+                    }
+                },
+                "default": {
+                    "color": "#6B3F69"
+                }
+            },
+            {
+                "label": "Secondary Color",
+                "name": "secondary",
+                "type": "color",
+                "visibility": {
+                    "hidden_subfields": {
+                        "opacity": true
+                    }
+                },
+                "default": {
+                    "color": "#8D5F8C"
+                }
+            },
+            {
+                "label": "Accent Color",
+                "name": "accent",
+                "type": "color",
+                "visibility": {
+                    "hidden_subfields": {
+                        "opacity": true
+                    }
+                },
+                "default": {
+                    "color": "#A376A2"
+                }
+            },
+            {
+                "label": "Text Color",
+                "name": "text",
+                "type": "color",
+                "visibility": {
+                    "hidden_subfields": {
+                        "opacity": true
+                    }
+                },
+                "default": {
+                    "color": "#4A2849"
+                }
+            },
+            {
+                "label": "Background Color",
+                "name": "background",
+                "type": "color",
+                "visibility": {
+                    "hidden_subfields": {
+                        "opacity": true
+                    }
+                },
+                "default": {
+                    "color": "#FFF9F9"
+                }
+            }
+        ]
+    },
+    {
+        "label": "Header Settings",
+        "name": "header_settings",
+        "type": "group",
+        "children": [
+            {
+                "label": "Header Background Color",
+                "name": "header_bg_color",
+                "type": "color",
+                "visibility": {
+                    "hidden_subfields": {
+                        "opacity": true
+                    }
+                },
+                "default": {
+                    "color": "#6B3F69"
+                }
+            },
+            {
+                "label": "Header Text Color",
+                "name": "header_text_color",
+                "type": "color",
+                "visibility": {
+                    "hidden_subfields": {
+                        "opacity": true
+                    }
+                },
+                "default": {
+                    "color": "#FFFFFF"
+                }
+            }
+        ]
+    },
+    {
+        "label": "Footer Settings",
+        "name": "footer_settings",
+        "type": "group",
+        "children": [
+            {
+                "label": "Footer Background Color",
+                "name": "footer_bg_color",
+                "type": "color",
+                "visibility": {
+                    "hidden_subfields": {
+                        "opacity": true
+                    }
+                },
+                "default": {
+                    "color": "#6B3F69"
+                }
+            },
+            {
+                "label": "Footer Text Color",
+                "name": "footer_text_color",
+                "type": "color",
+                "visibility": {
+                    "hidden_subfields": {
+                        "opacity": true
+                    }
+                },
+                "default": {
+                    "color": "#FFFFFF"
+                }
+            }
+        ]
+    }
+]

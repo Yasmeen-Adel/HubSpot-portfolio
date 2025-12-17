@@ -1,0 +1,43 @@
+<!-- 
+templateType: module 
+label: Hero Section Module 
+isAvailableForNewContent: true 
+-->
+<div class="hero-section" id="home">
+    <div class="hero-content">
+        {% if module.profile_image.src %}
+        <div class="hero-image">
+            <img src="{{ module.profile_image.src|escape_url }}" 
+                 alt="{{ module.profile_image.alt|escape_attr }}"
+                 {% if module.profile_image.size_type == 'auto' %} 
+                     width="{{ module.profile_image.width|escape_attr }}" 
+                     height="{{ module.profile_image.height|escape_attr }}" 
+                     style="max-width: 100%; height: auto;"
+                 {% elif module.profile_image.size_type == 'auto_custom_max' %} 
+                     width="{{ module.profile_image.max_width|escape_attr }}" 
+                     height="{{ module.profile_image.max_height|escape_attr }}" 
+                     style="max-width: 100%; height: auto;"
+                 {% else %}
+                     width="{{ module.profile_image.width|escape_attr }}" 
+                     height="{{ module.profile_image.height|escape_attr }}"
+                 {% endif %}
+                 loading="{{ module.profile_image.loading|default('eager')|escape_attr }}">
+        </div>
+        {% endif %}
+        
+        <div class="hero-text">
+            <h1>{% inline_text field="full_name" value="{{ module.full_name }}" %}</h1>
+            <p class="hero-title">{% inline_text field="professional_title" value="{{ module.professional_title }}" %}</p>
+            <p class="hero-description">{% inline_rich_text field="intro_text" value="{{ module.intro_text }}" %}</p>
+            
+            <div class="hero-buttons">
+                <a href="#projects" class="btn">{% inline_text field="btn_view_work" value="View My Work" %}</a>
+                <a href="#contact" class="btn btn-outline">{% inline_text field="btn_contact_me" value="Contact Me" %}</a>
+            </div>
+        </div>
+    </div>
+    
+    {% require_css %}
+    <link rel="stylesheet" href="{{ module_asset_url('module.css') }}">
+    {% end_require_css %}
+</div>

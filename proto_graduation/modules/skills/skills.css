@@ -1,0 +1,272 @@
+.skills-section {
+    background: linear-gradient(135deg, #FFF9F9 0%, #F5EDED 100%);
+    padding: 90px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative background shapes */
+.skills-section::before {
+    content: '';
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(163, 118, 162, 0.1), rgba(221, 195, 195, 0.1));
+    top: -100px;
+    left: -80px;
+    z-index: 0;
+}
+
+.skills-section::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(221, 195, 195, 0.08), rgba(163, 118, 162, 0.08));
+    bottom: -80px;
+    right: -60px;
+    z-index: 0;
+}
+
+.skills-container {
+    max-width: 950px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.skill-item {
+    margin-bottom: 35px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(107, 63, 105, 0.1);
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.6s ease-out both;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Stagger animation for skills */
+.skill-item:nth-child(1) { animation-delay: 0.1s; }
+.skill-item:nth-child(2) { animation-delay: 0.2s; }
+.skill-item:nth-child(3) { animation-delay: 0.3s; }
+.skill-item:nth-child(4) { animation-delay: 0.4s; }
+.skill-item:nth-child(5) { animation-delay: 0.5s; }
+.skill-item:nth-child(6) { animation-delay: 0.6s; }
+.skill-item:nth-child(7) { animation-delay: 0.7s; }
+.skill-item:nth-child(8) { animation-delay: 0.8s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.skill-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 8px 30px rgba(107, 63, 105, 0.2);
+    border-left: 5px solid #A376A2;
+}
+
+/* Hover shimmer effect */
+.skill-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(163, 118, 162, 0.1), transparent);
+    transition: left 0.5s;
+}
+
+.skill-item:hover::before {
+    left: 100%;
+}
+
+.skill-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.skill-header i {
+    font-size: 1.7rem;
+    color: #8D5F8C;
+    transition: all 0.3s ease;
+}
+
+.skill-item:hover .skill-header i {
+    color: #6B3F69;
+    transform: scale(1.15);
+}
+
+.skill-name {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #6B3F69;
+    flex: 1;
+    transition: color 0.3s ease;
+}
+
+.skill-item:hover .skill-name {
+    color: #8D5F8C;
+}
+
+.skill-percentage {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #A376A2;
+    background: linear-gradient(135deg, #DDC3C3 0%, #F5EDED 100%);
+    padding: 4px 12px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.skill-item:hover .skill-percentage {
+    background: linear-gradient(135deg, #8D5F8C 0%, #A376A2 100%);
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+.skill-bar {
+    width: 100%;
+    height: 14px;
+    background-color: #F5EDED;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(107, 63, 105, 0.1);
+    position: relative;
+}
+
+.skill-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #6B3F69 0%, #8D5F8C 50%, #A376A2 100%);
+    border-radius: 10px;
+    width: var(--skill-width);
+    transition: width 1.5s ease-in-out;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(141, 95, 140, 0.4);
+}
+
+/* Shimmer animation inside progress bar */
+.skill-progress::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Pulse animation on progress bar */
+.skill-progress::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    border-radius: 10px;
+    animation: pulse-glow 2s ease-in-out infinite;
+    opacity: 0;
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.3;
+        transform: scale(1.02);
+    }
+}
+
+@media (max-width: 1024px) {
+    .skills-section {
+        padding: 70px 20px;
+    }
+    
+    .skill-item {
+        padding: 18px;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 767px) {
+    .skills-section {
+        padding: 60px 20px;
+    }
+    
+    .skill-item {
+        padding: 15px;
+        margin-bottom: 25px;
+    }
+    
+    .skill-item:hover {
+        transform: translateX(5px);
+    }
+    
+    .skill-header {
+        gap: 10px;
+    }
+    
+    .skill-header i {
+        font-size: 1.5rem;
+    }
+    
+    .skill-name {
+        font-size: 1rem;
+    }
+    
+    .skill-percentage {
+        font-size: 0.95rem;
+        padding: 3px 10px;
+    }
+    
+    .skill-bar {
+        height: 12px;
+    }
+    
+    .skills-section::before,
+    .skills-section::after {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .skills-section::before {
+        top: -60px;
+        left: -50px;
+    }
+    
+    .skills-section::after {
+        bottom: -60px;
+        right: -40px;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}

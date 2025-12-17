@@ -1,0 +1,23 @@
+<div class="services-section" id="services">
+  <div class="services-grid">
+    {% for item in module.services_list %}
+      <div class="service-card">
+
+        {% if item.service_icon %}
+          <div class="service-icon">
+            <i class="{{ item.service_icon }}"></i>
+          </div>
+        {% endif %}
+
+        <h3>
+          {% inline_text field="service_title" value="{{ item.service_title }}" %}
+        </h3>
+
+        <p>
+          {% inline_text field="service_description" value="{{ item.service_description }}" %}
+        </p>
+
+      </div>
+    {% endfor %}
+  </div>
+</div>
