@@ -130,14 +130,7 @@ Each project includes:
 
 This template can be used as:
 - A personal portfolio website
-- A graduation project introduction page
 - A professional landing page template for HubSpot CMS
-
----
-
-## 📌 Author
-**Flutter Developer & Web Developer**  
-Built as part of a graduation project using HubSpot Design Manager.
 
 ---
 
