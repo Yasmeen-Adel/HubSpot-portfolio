@@ -26,8 +26,10 @@ The main goals of this project are:
 ---
 
 ## 🧩 Website Structure
+
 The website is a **single-page application** composed of multiple reusable sections:
 
+```text
 proto_graduation/
 ├── css/
 │   ├── _layout.css
@@ -38,11 +40,11 @@ proto_graduation/
 │   └── projects/
 ├── modules/
 │   ├── about/
-│   └── contact/
-│   └── hero/
-│   └── projects/
-│   └── services/
-└── └── skills/
+│   ├── contact/
+│   ├── hero/
+│   ├── projects/
+│   ├── services/
+│   └── skills/
 ├── sections/
 │   ├── about-section.html
 │   ├── contact-section.html
@@ -57,8 +59,10 @@ proto_graduation/
 │   ├── partials/
 │   │   ├── footer.html
 │   │   └── header.html
-│   ├── fields.json
-└── └── theme.json
+│   └── fields.json
+└── theme.json
+```
+
 
 Each section is built as a **custom module** to ensure maximum editability and flexibility.
 
