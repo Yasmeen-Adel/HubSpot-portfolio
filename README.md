@@ -140,3 +140,6 @@ This template can be used as:
 
 ## 🔗 Repository
 This project is hosted on GitHub and supports team collaboration through contributors.
+## Malak Ali
+## Yasmeen Adel
+## Nancy Shaaban
